@@ -1,0 +1,70 @@
+{:objects
+
+ {:Wiki {:fields {:id {:type Int}
+                  :title {:type String}
+                  :content {:type String}
+                  :tag {:type (list String)}
+                  :is_draft {:type Boolean}
+                  :created_at {:type String}
+                  :updated_at {:type String}}}
+
+  :Attachment {:fields {:id {:type Int}
+                        :display_name {:type String}
+                        :saved_name {:type String}
+                        :size {:type Int}
+                        :content_type {:type String}}}
+
+  :Pagination {:fields {:page {:type Int}
+                        :size {:type Int}
+                        :rows {:type (list :Wiki)}}}
+  }
+
+
+ :queries
+ {:posts {:type :Pagination
+          :args {:page {:type Int}
+                 :size {:type Int}}
+          :resolve :post-pagination}
+
+  :view {:type :Wiki
+         :args {:id {:type Int}}
+         :resolve :post}
+
+  :attach {:type (list :Attachment)
+           :args {:wiki_id {:type Int}}
+           :resolve :attachments}
+
+  }
+
+
+ :mutations
+ {:new {:type :Wiki
+        :args {:title {:type String}
+               :content {:type String}
+               :tag {:type (list String)}
+               :is_draft {:type Boolean}}
+        :resolve :create-post}
+
+  :update {:type  :Boolean
+           :args {:id {:type Int}
+                  :title {:type String}
+                  :content {:type String}
+                  :tag {:type (list String)}
+                  :is_draft {:type Boolean}}
+           :resolve :update-post}
+
+  :remove {:type Boolean
+           :args {:id {:type Int}}
+           :resolve :remove-post}
+
+
+
+  }
+
+
+
+
+
+
+
+ }
