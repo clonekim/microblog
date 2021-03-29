@@ -7,26 +7,26 @@ import PostList from './components/PostList';
 
 function App() {
 
-    return (
-        <ApolloProvider client={client}>
-            <Container>
-              <Router>
-                <Switch>
-                    <Route path="/">
-                        <PostList />
-                    </Route>
+  return (
+    <ApolloProvider client={client}>
+      <Container>
+        <Router>
+          <Switch>
+            <Route path="/">
+              <PostList />
+            </Route>
 
-                    <Route path="/view/:id">
-                    </Route>
+            <Route path="/view/:id">
+            </Route>
 
-                    <Route path="/drafts">
-                    </Route>
+            <Route path="/drafts">
+            </Route>
 
-                </Switch>
-      </Router>
-            </Container>
-        </ApolloProvider>
-    );
+          </Switch>
+        </Router>
+      </Container>
+    </ApolloProvider>
+  );
 }
 
 export default App;

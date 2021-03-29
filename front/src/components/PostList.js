@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {gql, useQuery } from '@apollo/client';
+import { useQuery } from '@apollo/client';
 import { Card, } from 'react-bootstrap';
 
 import { loader } from 'graphql.macro';
@@ -10,7 +10,7 @@ function PostList () {
   const [posts, setPosts] = useState([]);
 
   const {loading, error, data} = useQuery(GET_POSTS, {
-    variables: {page: page}
+    variables: {page: 1}
   });
 
 

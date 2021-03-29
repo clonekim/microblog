@@ -55,7 +55,13 @@
 
 
 
-(defn post-pagination [ context args _value] )
+(defn post-pagination [ context {:keys [page size]} _value]
+  (log/debug "Here!")
+  {:page page
+   :size size
+   :rows []}
+
+  )
 (defn post [ context args _value] )
 (defn attachments [ context args _value] )
 (defn create-post [ context args _value] )

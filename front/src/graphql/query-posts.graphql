@@ -1,9 +1,9 @@
-query GET_POSTS($page: Int!) {
+query GET_POSTS ($page: Int!) {
 
- posts(page: $page, siz: 10) {
-  id,
-  title,
-  created_at
+  posts(page: $page, size: 10) {
+   page
+   size
+   rows
   }
 
 }
