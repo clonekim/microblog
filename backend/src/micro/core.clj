@@ -1,4 +1,4 @@
-(ns microwiki.core
+(ns micro.core
   (:gen-class)
   (:require [clojure.tools.logging :as log]
             [clojure.data.json :as json]
@@ -11,8 +11,9 @@
             [org.httpkit.server :as http]
             [nrepl.server :as nrepl]
             [com.walmartlabs.lacinia :refer [execute]]
-            [microwiki.graphql :as graphql]
-            [microwiki.db :as db]))
+            [micro.middleware :refer [defaults]]
+            [micro.graphql :as graphql]
+            [micro.db :as db]))
 
 
 (defonce component (atom nil))
@@ -72,7 +73,7 @@
                   :body (json/write-str (execute schema query nil nil))}))
              (route/not-found "404 Not Found"))]
 
-    (-> app
+    (-> ((:middleware defaults) app)
         (wrap-resource "build")
         (wrap-defaults
          (-> site-defaults

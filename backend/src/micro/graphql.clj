@@ -1,8 +1,8 @@
-(ns microwiki.graphql
+(ns micro.graphql
   (:require [clojure.edn :as edn]
             [com.walmartlabs.lacinia.util :refer [attach-resolvers]]
             [com.walmartlabs.lacinia.schema :as s]
-            [microwiki.db :as db]))
+            [micro.db :as db]))
 
 
 

@@ -1,3 +1,3 @@
-# Introduction to microwiki
+# Introduction to micro
 
 TODO: write [great documentation](http://jacobian.org/writing/what-to-write/)

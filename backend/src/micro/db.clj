@@ -1,4 +1,4 @@
-(ns microwiki.db
+(ns micro.db
   (:require [clojure.tools.logging :as log]
             [clojure.java.jdbc :as jdbc])
   (:import [java.io File]
@@ -25,7 +25,7 @@
     :posts
     [[:id "integer primary key autoincrement"]
      [:title "varchar(100) not null"]
-     [:content :text]
+     [:content "text not null"]
      [:tag "varchar(200)"]
      [:is_draft :boolean]
      [:created_at :datetime]
@@ -39,6 +39,7 @@
     [[:id "integer primary key autoincrement"]
      [:display_name "varchar not null"]
      [:saved_name "varchar not null"]
+     [:content_type "varchar(100) not null"]
      [:size :integer]
      [:uploaded_at :datetime]
      [:post_id "integer not null"]]))

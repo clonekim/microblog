@@ -1,6 +1,6 @@
-(ns microwiki.core-test
+(ns micro.core-test
   (:require [clojure.test :refer :all]
-            [microwiki.core :refer :all]))
+            [micro.core :refer :all]))
 
 (deftest a-test
   (testing "FIXME, I fail."
